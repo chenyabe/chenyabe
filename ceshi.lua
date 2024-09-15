@@ -40,7 +40,7 @@ Start = tick()
 Heartbeat:Connect(HeartbeatUpdate)
 
 local ui = loadstring(game:HttpGet("https://pastebin.com/raw/Ey3CpCHS"))();        
-local win = ui:new("丁丁脚本VB")
+local win = ui:new("我爱缝合")
 --
 local UITab1 = win:Tab("『信息』",'6035145364')
 
