@@ -46,9 +46,10 @@ local UITab1 = win:Tab("『信息』",'6035145364')
 
 local about = UITab1:section("『信息』",true)
 
-
+about:Label("致敬传奇缝合王kr x")
+about:Label("此脚本为缝合")
 about:Label("作者：chen")
-about:Label("脚本疯狂优化中")
+about:Label("正在制作中")
 about:Label("你的注入器:"..identifyexecutor())
 about:Label("你的名字:"..game.Players.LocalPlayer.Name)
 about:Label("你的用户名:"..game.Players.LocalPlayer.Character.Name)
@@ -62,7 +63,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/boyscp/scriscriptsc/m
 end)
 
 about:Button("飞行",function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/boyscp/scriscriptsc/main/bbn.lua"))()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/bilisolongcheng/roblox-/main/fx"),true))()
 end)
 
 about:Button("汉化穿墙",function()
