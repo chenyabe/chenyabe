@@ -1,65 +1,49 @@
-local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/atoyayaya/ui/main/UI"))()
-local Window = OrionLib:MakeWindow({Name = "我爱缝合", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
-local plrs = game:GetService("Players")
-local plr = plrs.LocalPlayer
-local TeleportService = game:GetService('TeleportService')
-local Gui = Instance.new("ScreenGui")
-local Message = game:GetService("StarterGui")
-local TweenService = game:GetService('TweenService')
-local CoreGui = game:GetService('CoreGui')
+local RainbowLib =
+loadstring(game:HelpGet("https://raw.githubusercontent.com/YJY2022hh666/yjy/main/rainbow.ui.main.lua?token=GHSAT0AAAAAACESL5MYP6BL6PJ45CVEZRQEZFYXXUA",true))()
+local window = library:new("我爱缝合")
 
-_G.autokill = true
+local creds = window:Tab("信息",'6035145364')
 
-function autokill()
-	while _G.autokill == true do
-			for i, player in ipairs(game.Players:GetChildren()) do
-			if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-			player.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 1
-			end
-			end
-wait(0.1)
+local bin = creds:section("信息",true)
 
-	end
-end
+    bin:Label("此脚本为缝合")
+    bin:Label("致敬传奇缝合王kr X")
+    bin:Label("你的用户名："..game.Players.LocalPlayer.Character.Name)
+    bin:Label("你的名字："..game.Players.LocalPlayer.Name)
+    bin:Label("你的注入器:"..identifyexecutor())
 
-_G.autoweight = true
+local credits = creds:section("UI设置",true)
 
-function autoweight()
-	while _G.autoweight == true do
-			 local part = Instance.new('Part', workspace)
-part.Size = Vector3.new(500, 20, 530.1)
-part.Position = Vector3.new(0, 1000, 133.15)
-part.CanCollide = true
-part.Anchored = true
+    credits:Button("摧毁UI",function()
+        game:GetService("CoreGui")["frosty"]:Destroy()
+    end)
 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = part.CFrame + Vector3.new(0, 15, 0)
+    credits:Toggle("彩虹UI", "", false, function(state)
+        if state then
+        game:GetService("CoreGui")["frosty"].Main.Style = "DropShadow"
+        else
+            game:GetService("CoreGui")["frosty"].Main.Style = "Custom"
+        end
+    end)
 
-local a = true
-local rs = game:GetService("RunService").RenderStepped
-if a == true then
-while rs:wait() do
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-if v.ClassName == "Tool" and v.Name == "Weight" then
-v.Parent = game.Players.LocalPlayer.Character
-end
-end
-game:GetService("Players").LocalPlayer.muscleEvent:FireServer("rep")
-end
-end
+credits:Toggle("玩家加入游戏提示", "", false, function(state)
+        if state then
+    
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/boyscp/scriscriptsc/main/bbn.lua"))()
+    end)
 
-	end
-end
+local creds = window:Tab("通用",'6035145364')
 
-_G.autor = true
+local bin = creds:section("通用",true)
 
-local Tab = Window:MakeTab({
-	Name = "信息",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
+local credits = creds:section("通用",true)
 
-local Section = Tab:AddSection({
-	Name = "信息"
-})
+    credits:Button("飞行",function()
+	loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\90\66\122\99\84\109\49\102\34\41\41\40\41\10")()
+    end)
 
-Tab:AddParagraph:("致敬传奇缝合员", "kr X")
+credits:Toggle("没做好", "", false, function(state)--这个是一种功能，可以随意开关
+        if state then
+    空一行
+    脚本
+    end)
