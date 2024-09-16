@@ -39,11 +39,11 @@ local function HeartbeatUpdate()
 end
 Start = tick()
 Heartbeat:Connect(HeartbeatUpdate)
-local Window = OrionLib:MakeWindow({Name = "小达中心", HidePremium = false, SaveConfig = true,IntroText = "小达脚本", ConfigFolder = "小达中心"})
+local Window = OrionLib:MakeWindow({Name = "缝合脚本", HidePremium = false, SaveConfig = true,IntroText = "缝合脚本", ConfigFolder = "我爱缝合"})
 game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "我爱缝合"; Text ="我爱缝合"; Duration = 4; })
 
 local about = Window:MakeTab({
-    Name = "小达制作",
+    Name = "不知名制作",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
