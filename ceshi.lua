@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "大玉脚本🤓", HidePremium = false, SaveConfig = true, ConfigFolder = "大玉脚本",IntroText ＝ "缝合王"})
+local Window = OrionLib:MakeWindow({Name = "大玉脚本🤓", HidePremium = false, SaveConfig = true, ConfigFolder = "大玉脚本🤓",IntroText ＝ "缝合王"})
 
 local Tab = Window:MakeTab({
 	Name = "通用",
