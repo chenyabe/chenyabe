@@ -1,3 +1,5 @@
+--别看了😭全是缝合的没啥好看
+--给我送一份源码谢谢🤓
 local LBLG = Instance.new("ScreenGui", getParent)
 local LBL = Instance.new("TextLabel", getParent)
 local player = game.Players.LocalPlayer
