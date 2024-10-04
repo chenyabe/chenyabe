@@ -194,7 +194,7 @@ Tab:AddButton({
 
 	end
 
-}(
+}）
 
 
 
