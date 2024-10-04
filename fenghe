@@ -1,1 +1,1 @@
-game.Players.LocalPlayer:Kick("不是我让你开了吗😡")
+game.Players.LocalPlayer:Kick(game.Players.LocalPlayer.Character.Name,"不是我让你开了吗😡")
