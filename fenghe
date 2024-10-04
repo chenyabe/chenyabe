@@ -1,1 +1,10 @@
-+game.Players.LocalPlayer%3AKick%28game.Players.LocalPlayer.Character.Name..%22%E4%BD%A0%E4%B8%AA%E4%BB%81%E6%B5%8E%F0%9F%98%A1%22%29%0A--%E4%B8%8D%E6%98%AF%E8%BF%99%E9%83%BD%E8%A6%81%E7%9C%8B
+--看啥看😡
+game.Players.LocalPlayer:Kick(game.Players.LocalPlayer.Character.Name.."你个仁济😡")
+
+
+
+
+
+
+
+
