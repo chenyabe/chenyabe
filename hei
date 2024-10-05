@@ -1,5 +1,5 @@
 a == game.Players.LocalPlayer.Name
 
 if a == "chenyabe" then
-    game.Players.LocalPlayer:Kick("不是你哥出生我让你开了吗")
+   game.Players.LocalPlayer:Kick("不是你哥出生我让你开了吗")
 end
