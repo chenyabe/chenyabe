@@ -2420,6 +2420,8 @@ Autodig.MouseButton1Down:connect(function()
  for _,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
       if v:IsA("Tool") then
             v.ClickEvent:FireServer()
+            v.ClickEvent:FireServer()
+            v.ClickEvent:FireServer()
      
       end
             end
