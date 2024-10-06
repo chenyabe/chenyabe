@@ -1,3 +1,4 @@
+--😡随便缝合下还看
 --Edited by BeeswarmMVP sub to my yt
 
 for _,v in pairs(game.workspace.Collectibles:GetChildren()) do
