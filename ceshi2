@@ -15,13 +15,13 @@ print("反挂机正在开启")
 		end)
 local Window = OrionLib:MakeWindow({Name = "POG",HidePremium = false,SaveConfig = true,IntroText = "POG",ConfigFolder = "POG"})
 local main = Window:MakeTab({
-	Name = "主要",
+	Name = "其他脚本",
 	Icon = "rbxassetid://14359155637",
 	PremiumOnly = false
 })
 
-main:Button({
- Name = "锁头(启动后无ui,右键启动和关闭(无队伍检测))"
+main:AddButton({
+ Name = "龙脚本"
 })
 
 
