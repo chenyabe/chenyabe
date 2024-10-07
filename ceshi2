@@ -20,7 +20,7 @@ local main = Window:MakeTab({
 	PremiumOnly = false
 })
 
-main:AddButton({
+main:Button({
  Name = "锁头(启动后无ui,右键启动和关闭(无队伍检测))"
 })
 
