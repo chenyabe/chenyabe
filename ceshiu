@@ -1,0 +1,227 @@
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local function attackPlayer(player, times)
+    local threads = {}
+    for i = 1, times do
+        table.insert(threads, coroutine.create(function()
+            local args = {
+                [1] = player.Character,
+                [2] = {
+                    ["outline_color"] = Color3.new(1, 1, 1),
+                    ["fill_color"] = Color3.new(0, 0, 0),
+                    ["startup"] = 1800,
+                    ["active"] = 1000,
+                    ["kb_speed"] = 0,
+                    ["vfx"] = "Default",
+                    ["size"] = Vector3.new(3, 5, 3),
+                    ["kb_duration"] = 0,
+                    ["stun_anim"] = "reaction_2",
+                    ["stun"] = 0.7,
+                    ["kb_force"] = 0,
+                    ["offset"] = CFrame.new(0, 0, -2, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                    ["damage"] = 1e2000
+                }
+            }
+            ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("Hit"):FireServer(unpack(args))
+        end))
+    end
+
+    -- Resume all threads simultaneously
+    for _, thread in ipairs(threads) do
+        coroutine.resume(thread)
+    end
+end
+
+local function getUp(times)
+    local threads = {}
+    for i = 1, times do
+        table.insert(threads, coroutine.create(function()
+            ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("GetUp"):FireServer()
+        end))
+    end
+
+    -- Resume all threads simultaneously
+    for _, thread in ipairs(threads) do
+        coroutine.resume(thread)
+    end
+end
+
+-- GUI creation and event handlers remain unchanged.
+local function createGUI()
+    local ScreenGui = Instance.new("ScreenGui")
+    ScreenGui.Name = "AttackGUI"
+    ScreenGui.ResetOnSpawn = false
+    ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+
+    local Frame = Instance.new("Frame", ScreenGui)
+    Frame.Position = UDim2.new(0.5, -100, 0.5, -150)
+    Frame.Size = UDim2.new(0, 200, 0, 300)
+    Frame.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+    Frame.Active = true
+    Frame.Draggable = true
+
+    local Header = Instance.new("Frame", Frame)
+    Header.Size = UDim2.new(1, 0, 0, 30)
+    Header.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+
+    local Title = Instance.new("TextLabel", Header)
+    Title.Size = UDim2.new(1, -60, 1, 0)
+    Title.Text = "玩家攻击界面"
+    Title.TextColor3 = Color3.new(1, 1, 1)
+    Title.BackgroundTransparency = 1
+    Title.TextScaled = true
+
+    local PlayerList = Instance.new("ScrollingFrame", Frame)
+    PlayerList.Position = UDim2.new(0, 10, 0, 40)
+    PlayerList.Size = UDim2.new(1, -20, 0.6, -40)
+    PlayerList.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+    PlayerList.CanvasSize = UDim2.new(0, 0, 1, 0)
+    PlayerList.ScrollBarThickness = 8
+
+    local UIListLayout = Instance.new("UIListLayout", PlayerList)
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+    local InputBox = Instance.new("TextBox", Frame)
+    InputBox.Position = UDim2.new(0.25, 0, 0.65, 0)
+    InputBox.Size = UDim2.new(0.5, 0, 0, 30)
+    InputBox.PlaceholderText = "次数"
+    InputBox.Text = ""
+    InputBox.TextScaled = true
+
+    local AttackButton = Instance.new("TextButton", Frame)
+    AttackButton.Position = UDim2.new(0.25, -50, 0.75, 0)
+    AttackButton.Size = UDim2.new(0, 100, 0, 30)
+    AttackButton.Text = "攻击"
+    AttackButton.BackgroundColor3 = Color3.new(1, 0, 0)
+    AttackButton.TextColor3 = Color3.new(1, 1, 1)
+
+    local GetUpButton = Instance.new("TextButton", Frame)
+    GetUpButton.Position = UDim2.new(0.75, -50, 0.75, 0)
+    GetUpButton.Size = UDim2.new(0, 100, 0, 30)
+    GetUpButton.Text = "起来"
+    GetUpButton.BackgroundColor3 = Color3.new(0, 0, 1)
+    GetUpButton.TextColor3 = Color3.new(1, 1, 1)
+
+    local CloseButton = Instance.new("TextButton", Header)
+    CloseButton.Position = UDim2.new(1, -30, 0, 0)
+    CloseButton.Size = UDim2.new(0, 30, 0, 30)
+    CloseButton.Text = "X"
+    CloseButton.BackgroundColor3 = Color3.new(1, 0, 0)
+    CloseButton.TextColor3 = Color3.new(1, 1, 1)
+
+    local MinimizeButton = Instance.new("TextButton", Header)
+    MinimizeButton.Position = UDim2.new(1, -60, 0, 0)
+    MinimizeButton.Size = UDim2.new(0, 30, 0, 30)
+    MinimizeButton.Text = "-"
+    MinimizeButton.BackgroundColor3 = Color3.new(1, 1, 0)
+    MinimizeButton.TextColor3 = Color3.new(0, 0, 0)
+
+    local SelectedPlayer = nil
+    local Minimized = false
+
+    local function sortPlayerList()
+        local buttons = {}
+        for _, child in pairs(PlayerList:GetChildren()) do
+            if child:IsA("TextButton") then
+                table.insert(buttons, child)
+            end
+        end
+        table.sort(buttons, function(a, b)
+            return a.Name:lower() < b.Name:lower()
+        end)
+        for _, button in ipairs(buttons) do
+            button.Parent = nil
+            button.Parent = PlayerList
+        end
+        PlayerList.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+    end
+
+    local function createPlayerButton(player)
+        local Button = Instance.new("TextButton")
+        Button.Size = UDim2.new(1, -10, 0, 30)
+        Button.Text = player.DisplayName .. "(@" .. player.Name .. ")"
+        Button.Name = player.Name
+        Button.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+        Button.TextColor3 = Color3.new(1, 1, 1)
+        Button.TextScaled = true
+        Button.TextWrapped = true
+        Button.MouseButton1Click:Connect(function()
+            if SelectedPlayer == player then
+                SelectedPlayer = nil
+                Button.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+            else
+                SelectedPlayer = player
+                for _, child in pairs(PlayerList:GetChildren()) do
+                    if child:IsA("TextButton") then
+                        child.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+                    end
+                end
+                Button.BackgroundColor3 = Color3.new(0, 1, 0)
+            end
+        end)
+        Button.Parent = PlayerList
+        sortPlayerList()
+    end
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer then
+            createPlayerButton(player)
+        end
+    end
+
+    Players.PlayerAdded:Connect(function(player)
+        createPlayerButton(player)
+    end)
+
+    Players.PlayerRemoving:Connect(function(player)
+        for _, child in pairs(PlayerList:GetChildren()) do
+            if child:IsA("TextButton") and child.Name == player.Name then
+                child:Destroy()
+                sortPlayerList()
+                break
+            end
+        end
+    end)
+
+    UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+        PlayerList.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+    end)
+
+    AttackButton.MouseButton1Click:Connect(function()
+        if SelectedPlayer then
+            local times = tonumber(InputBox.Text) or 1
+            attackPlayer(SelectedPlayer, times)
+        end
+    end)
+
+    GetUpButton.MouseButton1Click:Connect(function()
+        local times = tonumber(InputBox.Text) or 1
+        getUp(times)
+    end)
+
+    CloseButton.MouseButton1Click:Connect(function()
+        ScreenGui:Destroy()
+    end)
+
+    MinimizeButton.MouseButton1Click:Connect(function()
+        Minimized = not Minimized
+        for _, child in pairs(Frame:GetChildren()) do
+            if child ~= Header then
+                child.Visible = not Minimized
+            end
+        end
+        Frame.Size = Minimized and UDim2.new(0, 200, 0, 30) or UDim2.new(0, 200, 0, 300)
+    end)
+end
+
+if not LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("AttackGUI") then
+    createGUI()
+end
+
+LocalPlayer.CharacterAdded:Connect(function()
+    if not LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("AttackGUI") then
+        createGUI()
+    end
+end)
