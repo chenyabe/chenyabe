@@ -47,12 +47,6 @@ Name = "皮脚本了（Q~）",
 	end 
 }) 
 
-local FE = Window:MakeTab({ 
-        Name = "锁头", 
-        Icon = "rbxassetid://14481493145", 
-        PremiumOnly = false 
-}) 
-
 local FE = Window:MakeTab({
 	Name = "锁头",
 	Icon = "rbxassetid://14481493145",
