@@ -59,8 +59,6 @@ local statement = Window:MakeTab({
 	PremiumOnly = false
 })
 
-
-
 local PE = Window:MakeTab({
 	Name = "各大脚本",
 	Icon = "rbxassetid://14481493145",
@@ -85,6 +83,34 @@ PE:AddButton({
 Name = "皮脚本了（Q~）", 
 	Callback = function() 
 		getgenv().XiaoPi="皮脚本QQ群1002100032" loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopi77/xiaopi77/main/QQ1002100032-Roblox-Pi-script.lua"))() 
+	end 
+}) 
+
+PE:AddButton({ 
+	Name = "Tian v1", 
+	Callback = function() 
+		LAT = "QQ3422265683" TianV1QQqun= "495186854"loadstring(game:HttpGet("https://raw.githubusercontent.com/LinAntian/TianV1Sec/main/TianV1Sec"))()
+	end 
+}) 
+
+PE:AddButton({ 
+	Name = "林脚本", 
+	Callback = function() 
+		lin = "作者林"lin ="林QQ群 747623342"loadstring(game:HttpGet("https://raw.githubusercontent.com/linnblin/lin/main/lin"))()
+	end 
+}) 
+
+PE:AddButton({ 
+	Name = "禁漫中心", 
+	Callback = function() 
+		getgenv().LS="禁漫中心" loadstring(game:HttpGet("https://raw.githubusercontent.com/dingding123hhh/ng/main/jmlllllllIIIIlllllII.lua"))()
+	end 
+}) 
+
+PE:AddButton({ 
+	Name = "落叶中心", 
+	Callback = function() 
+		getgenv().LS="落叶中心" loadstring(game:HttpGet("https://raw.githubusercontent.com/krlpl/Deciduous-center-LS/main/%E8%90%BD%E5%8F%B6%E4%B8%AD%E5%BF%83%E6%B7%B7%E6%B7%86.txt"))()
 	end 
 }) 
 
