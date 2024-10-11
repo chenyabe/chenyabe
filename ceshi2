@@ -59,6 +59,8 @@ local statement = Window:MakeTab({
 	PremiumOnly = false
 })
 
+statement:Label("你的注入器:"..identifyexecutor())
+
 local PE = Window:MakeTab({
 	Name = "各大脚本",
 	Icon = "rbxassetid://14481493145",
