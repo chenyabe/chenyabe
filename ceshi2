@@ -1,7 +1,3 @@
-local LBLG = Instance.new("ScreenGui", getParent)
-local LBL = Instance.new("TextLabel", getParent)
-local player = game.Players.LocalPlayer
-
 LBLG.Name = "LBLG"
 LBLG.Parent = game.CoreGui
 LBLG.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -45,21 +41,13 @@ OrionLib:MakeNotification({
 	Content = "这个入开桂了",
 	Image = "rbxthumb://type=Asset&id=5107182114&w=150&h=150",
 	Time = 2
-})
-		local vu = game:GetService("VirtualUser")
-		game:GetService("Players").LocalPlayer.Idled:connect(function()
-		   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-		   wait(1)
-		   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-		end)
+
 local Window = OrionLib:MakeWindow({Name = "POG",HidePremium = false,SaveConfig = true,IntroText = "不到",ConfigFolder = "krx"})
 local statement = Window:MakeTab({
 	Name = "主要",
 	Icon = "rbxassetid://14359155637",
 	PremiumOnly = false
 })
-
-statement:Label("你的注入器:"..identifyexecutor())
 
 local PE = Window:MakeTab({
 	Name = "各大脚本",
