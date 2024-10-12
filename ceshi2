@@ -105,6 +105,19 @@ PE:AddButton({
 }) 
 
 local FE = Window:MakeTab({
+	Name = "meme sea",
+	Icon = "rbxassetid://14481493145",
+	PremiumOnly = false
+})
+
+PE:AddButton({ 
+	Name = "OMG hub（推荐）", 
+	Callback = function() 
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Omgshit/Scripts/main/MainLoader.lua"))()
+	end 
+}) 
+
+local FE = Window:MakeTab({
 	Name = "锁头",
 	Icon = "rbxassetid://14481493145",
 	PremiumOnly = false
