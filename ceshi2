@@ -37,12 +37,19 @@ Start = tick()
 local OrionLib = loadstring(game:HttpGet(('https://pastebin.com/raw/C6ujZ7sU')))()
 
 OrionLib:MakeNotification({
-	Name = "666",
-	Content = "这个入开桂了",
+	Name = "正在打开脚本",
+	Content = "正在加载",
 	Image = "rbxthumb://type=Asset&id=5107182114&w=150&h=150",
 	Time = 2
-
-local Window = OrionLib:MakeWindow({Name = "POG",HidePremium = false,SaveConfig = true,IntroText = "不到",ConfigFolder = "krx"})
+})
+print("反挂机正在开启")
+		local vu = game:GetService("VirtualUser")
+		game:GetService("Players").LocalPlayer.Idled:connect(function()
+		   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		   wait(1)
+		   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		end)
+local Window = OrionLib:MakeWindow({Name = "sun",HidePremium = false,SaveConfig = true,IntroText = "bro",ConfigFolder = "致敬krx"})
 local statement = Window:MakeTab({
 	Name = "主要",
 	Icon = "rbxassetid://14359155637",
