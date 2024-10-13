@@ -94,6 +94,19 @@ FE:AddButton({
 }) 
 
 local FE = Window:MakeTab({
+	Name = "蜂群",
+	Icon = "rbxassetid://14481493145",
+	PremiumOnly = false
+})
+
+FE:AddButton({ 
+	Name = "汉化过的", 
+	Callback = function() 
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/chenyabe/chenyabe/refs/heads/main/fenghe",true))()
+	end 
+}) 
+
+local FE = Window:MakeTab({
 	Name = "锁头",
 	Icon = "rbxassetid://14481493145",
 	PremiumOnly = false
