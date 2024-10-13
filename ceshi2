@@ -86,15 +86,6 @@ local FE = Window:MakeTab({
 	PremiumOnly = false
 })
 
-FE:AddTextbox({
-	Name = "移动速度设置",
-	Default = "",
-	TextDisappear = true,
-	Callback = function(Value)
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-	end
-})
-
 FE:AddButton({ 
 	Name = "飞行", 
 	Callback = function() 
