@@ -86,6 +86,19 @@ local FE = Window:MakeTab({
 	PremiumOnly = false
 })
 
+Tab:AddSlider({
+	Name = "速度",
+	Min = 16,
+	Max = 200,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "数值",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end    
+})
+
 FE:AddButton({ 
 	Name = "飞行", 
 	Callback = function() 
