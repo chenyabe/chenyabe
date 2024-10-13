@@ -6,7 +6,6 @@ OrionLib:MakeNotification({
 	Image = "rbxthumb://type=Asset&id=5107182114&w=150&h=150",
 	Time = 2
 })
-print("反挂机正在开启")
 		local vu = game:GetService("VirtualUser")
 		game:GetService("Players").LocalPlayer.Idled:connect(function()
 		   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
@@ -20,13 +19,14 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab:AddLabel("此脚本完全免费")
+Tab:AddLabel("此脚本为缝合😋")
+Tab:AddLabel("完全免费禁止倒卖😡")
 Tab:AddLabel("作者牛牛")
 Tab:AddLabel("你的注入器:"..identifyexecutor())
 Tab:AddLabel("你的用户名:"..game.Players.LocalPlayer.Character.Name)
 
 local FE = Window:MakeTab({
-	Name = "各大脚本",
+	Name = "各大脚本😘",
 	Icon = "rbxassetid://14481493145",
 	PremiumOnly = false
 })
@@ -78,6 +78,18 @@ FE:AddButton({
 	Callback = function() 
 		getgenv().LS="落叶中心" loadstring(game:HttpGet("https://raw.githubusercontent.com/krlpl/Deciduous-center-LS/main/%E8%90%BD%E5%8F%B6%E4%B8%AD%E5%BF%83%E6%B7%B7%E6%B7%86.txt"))()
 	end 
+}) 
+
+local FE = Window:MakeTab({
+	Name = "通用",
+	Icon = "rbxassetid://14481493145",
+	PremiumOnly = false
+})
+
+FE:AddButton({ 
+	Name = "飞行", 
+	Callback = function() 
+		
 }) 
 
 local FE = Window:MakeTab({
