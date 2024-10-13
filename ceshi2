@@ -92,6 +92,27 @@ FE:AddButton({
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/chenyabe/chenyabe/refs/heads/main/fly",true))()
 }) 
 
+FE:AddButton({
+	Name = "阿尔宙斯锁头",
+	Callback = function()
+		loadstring(game:HttpGet('https://shz.al/~ArceusXAimbot'))()
+	end
+})
+
+FE:AddButton({
+	Name = "甩飞",
+	Callback = function()
+		loadstring(game:HttpGet('https://shz.al/~ArceusXAimbot'))()
+	end
+})
+
+FE:AddButton({
+	Name = "飞车",
+	Callback = function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/G3GnBCyC", true))()
+	end
+})
+
 local FE = Window:MakeTab({
 	Name = "meme sea",
 	Icon = "rbxassetid://14481493145",
@@ -128,13 +149,6 @@ FE:AddButton({
 	Name = "锁头(启动后无ui,右键启动和关闭(无队伍检测))",
 	Callback = function()
 		loadstring(game:HttpGet('https://shz.al/BFBt'))()
-	end
-})
-
-FE:AddButton({
-	Name = "阿尔宙斯锁头",
-	Callback = function()
-		loadstring(game:HttpGet('https://shz.al/~ArceusXAimbot'))()
 	end
 })
 
