@@ -89,7 +89,7 @@ local FE = Window:MakeTab({
 FE:AddButton({ 
 	Name = "飞行", 
 	Callback = function() 
-		
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/chenyabe/chenyabe/refs/heads/main/fly",true))()
 }) 
 
 local FE = Window:MakeTab({
