@@ -24,6 +24,12 @@ Tab:AddLabel("完全免费禁止倒卖😡")
 Tab:AddLabel("作者牛牛")
 Tab:AddLabel("你的注入器:"..identifyexecutor())
 Tab:AddLabel("你的用户名:"..game.Players.LocalPlayer.Character.Name)
+FE:AddButton({
+	Name = "点击复制出生群群号",
+	Callback = function()
+		setclipboard("764452461")
+})
+
 
 local FE = Window:MakeTab({
 	Name = "各大脚本😘",
