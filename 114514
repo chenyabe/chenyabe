@@ -27,6 +27,9 @@ local Tab = Window:MakeTab({
 
 Tab:AddParagraph("第一个脚本🤓")
 Tab:AddParagraph("UI来源导管中心")
+Tab:AddParagraph("你的注入器:"identifyexecutor())
+Tab:AddParagraph("第一个脚本🤓")
+Tab:AddParagraph("第一个脚本🤓")
 Tab:AddParagraph("阿尔宙斯注入器可能用不了")
 
 local Tab = Window:MakeTab({
