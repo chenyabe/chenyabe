@@ -25,13 +25,9 @@ local Tab = Window:MakeTab({
     PremiumOnly = false
 })
 
-Tab:AddParagraph("❤️BS脚本❤️")
-Tab:AddParagraph("本脚本主要更新通用和黑洞类")
+Tab:AddParagraph("第一个脚本🤓")
+Tab:AddParagraph("UI来源导管中心")
 Tab:AddParagraph("阿尔宙斯注入器可能用不了")
-Tab:AddParagraph("作者游戏名老大二世")
-Tab:AddParagraph("作者QQ1545959422")
-Tab:AddParagraph("副作者QQ1710433791")
-Tab:AddParagraph("Q群934326582")
 
 local Tab = Window:MakeTab({
 	Name = "设置",
