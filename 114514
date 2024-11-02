@@ -1,6 +1,6 @@
 loadstring(game:HttpGet("https://pastebin.com/raw/9fFu43FF"))()
 
-game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "看到这个就代表可以用"; Text ="请耐心等待加载"; Duration = 4; Image ="rbxthumb://type=Asset&id=5107182114&w=150&h=150";})
+game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "看到这个就代表可以用"; Text ="请耐心等待加载"; Duration = 4;})
 
 local CoreGui = game:GetService("StarterGui")
 
