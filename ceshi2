@@ -25,9 +25,9 @@ Tab:AddLabel("作者牛牛")
 Tab:AddLabel("你的注入器:"..identifyexecutor())
 Tab:AddLabel("你的用户名:"..game.Players.LocalPlayer.Character.Name)
 FE:AddButton({
-	Name = "点击复制出生群群号",
+	Name = "点击复制",
 	Callback = function()
-		setclipboard("764452461")
+		setclipboard("1489779005")
 })
 
 
@@ -144,6 +144,20 @@ FE:AddButton({
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/chenyabe/chenyabe/refs/heads/main/fenghe",true))()
 	end 
 }) 
+
+local PE = Window:MakeTab({
+	Name = "Fisch",
+	Icon = "rbxassetid://14481493145",
+	PremiumOnly = false
+})
+
+FE:AddButton({
+	Name = "乌托邦",
+	Callback = function()
+		loadstring(game:HttpGet("https://pastefy.app/xXwLngQD/raw"))()
+	end
+})
+
 
 local FE = Window:MakeTab({
 	Name = "锁头",
