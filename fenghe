@@ -1,1 +1,35 @@
-game.Players.LocalPlayer:Kick(game.Players.LocalPlayer.Character.Name.."让你玩"..game.GameId.."了吗😡")
+wait(1)
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "there",
+        Text = "已成功加载",
+        Duration = 3,
+})
+
+wait(1)
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "twe",
+        Text = "已成功加载",
+        Duration = 3,
+})
+
+wait(1)
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "ono",
+        Text = "已成功加载",
+        Duration = 3,
+})
+
+wait(1)
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "座下😏",
+        Text = "已成功加载",
+        Duration = 3,
+})
+
+wait(0.2)
+
+game.Players.LocalPlayer:Kick(game.Players.LocalPlayer.Character.Name.."让你玩"..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name.."了吗滚出去重进😡")
