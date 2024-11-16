@@ -1,5 +1,4 @@
 local OrionLib = loadstring(game:HttpGet(('https://pastebin.com/raw/C6ujZ7sU')))()
-
 OrionLib:MakeNotification({
 	Name = "666",
 	Content = "这个入开桂了",
@@ -91,6 +90,7 @@ FE:AddButton({
 	Name = "飞行", 
 	Callback = function() 
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/chenyabe/chenyabe/refs/heads/main/fly",true))()
+	end
 }) 
 
 FE:AddButton({
