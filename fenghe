@@ -1,2 +1,2 @@
 --不是你看个蛋
-game.Players.LocalPlayer:Kick(game.Players.LocalPlayer.Character.Name.."你个男娘")
+game.Players.LocalPlayer:Kick(game.Players.LocalPlayer.Character.Name.."让你玩")
