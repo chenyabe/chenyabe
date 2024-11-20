@@ -1,0 +1,42 @@
+--[loadstring(game:HttpGet("https://raw.githubusercontent.com/lwwgood/good/refs/heads/main/very%20gooooooooood"))()]
+wait(1)
+
+if zuoze ~= "niuniu" then
+    game.Players.LocalPlayer:Kick("麻烦复制完谢谢（")
+end
+
+wait(0.5)
+
+local sound = Instance.new("Sound") 
+local sound.SoundId = "rbxassetid://1"
+local sound.Parent = game.Workspace
+sound:Play()
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "你们好啊我是贝利亚",
+        Text = "我要来破坏萝卜肉丝了",
+        Icon = "rbxassetid://111121524304557",
+        Duration = 3.5,
+})
+
+wait(3.5)
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "奥特曼们都被我打败了",
+        Text = "你们敢不敢来阻止我",
+        Icon = "rbxassetid://111121524304557",
+        Duration = 3.5,
+})
+
+wait(3.5)
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "胆小鬼都划走了",
+        Icon = "rbxassetid://111121524304557",
+        Text = "哈哈哈哈哈",
+        Duration = 3.5,
+})
+
+wait(1.5)
+
+game.Players.LocalPlayer:Kick("黑暗皇帝已入侵"..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name.."并后入了"..game.Players.LocalPlayer.Character.Name)
