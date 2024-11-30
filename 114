@@ -26,21 +26,18 @@ local Tab = Window:MakeTab({
 })
 
 Tab:AddParagraph("游戏名"..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name)
-Tab:AddParagraph("你的用户名"..game.Players.LocalPlayer.Character.Name)
+Tab:AddParagraph("您的名字"..game.Players.LocalPlayer.Character.Name)
+Tab:AddParagraph("您的用户名:"," "..game.Players.LocalPlayer.Name.."")
 Tab:AddParagraph("阿尔宙斯注入器可能用不了")
 Tab:AddParagraph("作者牛牛")
 Tab:AddParagraph("您的注入器:"," "..identifyexecutor().."")
 Tab:AddParagraph("您当前服务器的ID"," "..game.GameId.."")
 
 local Tab = Window:MakeTab({
-        Name = "设置",
+        Name = "基础属性",
         Icon = "rbxassetid://7734068321",
         PremiumOnly = false
 })
-
-Tab:AddParagraph("您的用户名:"," "..game.Players.LocalPlayer.Name.."")
-Tab:AddParagraph("您的注入器:"," "..identifyexecutor().."")
-Tab:AddParagraph("您当前服务器的ID"," "..game.GameId.."")
 
 Tab:AddButton({
         Name = "开启玩家进出服务器提示",
