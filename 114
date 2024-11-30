@@ -29,6 +29,8 @@ Tab:AddParagraph("游戏名"..game:GetService("MarketplaceService"):GetProductIn
 Tab:AddParagraph("你的用户名"..game.Players.LocalPlayer.Character.Name)
 Tab:AddParagraph("阿尔宙斯注入器可能用不了")
 Tab:AddParagraph("作者牛牛")
+Tab:AddParagraph("您的注入器:"," "..identifyexecutor().."")
+Tab:AddParagraph("您当前服务器的ID"," "..game.GameId.."")
 
 local Tab = Window:MakeTab({
         Name = "设置",
