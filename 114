@@ -1,4 +1,4 @@
-game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "正常运行"; Text ="请耐心等待加载"; Duration = 4; })
+game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "正常运行"; Text ="请耐心等待加载"; Duration = 5; })
 
 wait(1.5)
 
