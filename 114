@@ -25,13 +25,10 @@ local Tab = Window:MakeTab({
     PremiumOnly = false
 })
 
-Tab:AddParagraph("1114514")
-Tab:AddParagraph("你的用户名")
+Tab:AddParagraph("游戏名"..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name)
+Tab:AddParagraph("你的用户名"..game.Players.LocalPlayer.Character.Name)
 Tab:AddParagraph("阿尔宙斯注入器可能用不了")
-Tab:AddParagraph("作者游戏名老大二世")
-Tab:AddParagraph("作者QQ1545959422")
-Tab:AddParagraph("副作者QQ1710433791")
-Tab:AddParagraph("Q群934326582")
+Tab:AddParagraph("作者牛牛")
 
 local Tab = Window:MakeTab({
         Name = "设置",
