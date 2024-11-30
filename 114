@@ -221,3 +221,392 @@ game.Players.LocalPlayer.Character.Head:Remove()
 
   end
 })
+
+local Tab = Window:MakeTab({
+        Name = "通用",
+        Icon = "rbxassetid://7734068321",
+        PremiumOnly = false
+})
+
+Tab:AddToggle({
+        Name = "夜视",
+        Default = false,
+        Callback = function(Value)
+
+                if Value then
+                    game.Lighting.Ambient = Color3.new(1, 1, 1)
+                else
+                    game.Lighting.Ambient = Color3.new(0, 0, 0)
+                end
+        end
+})
+
+Tab:AddToggle({
+  Name = "秒杀有血量的NPC",
+  Default = false,
+  Callback = function(Value)
+  if Value then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/WSbuq/-/main/killNPC"))()
+    else
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/WSbuq/-/main/killNPC1"))()
+  end
+end
+})
+
+Tab:AddButton({
+  Name = "穿墙(可关闭)",
+  Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TtmScripter/OtherScript/main/Noclip"))()
+  end
+})
+
+Tab:AddButton({
+  Name = "阿尔宙斯注入器",
+  Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/Arceus%20X%20V3"))()
+  end
+})
+
+Tab:AddButton({
+  Name = "飞行",
+  Callback = function()
+
+loadstring(game:HttpGet("https://pastebin.com/raw/pMyEyJN6"))()
+  end
+})
+
+Tab:AddButton({
+  Name = "隐身",
+  Callback = function()
+
+loadstring(game:HttpGet('https://pastebin.com/raw/3Rnd9rHf'))()
+
+  end
+})
+
+Tab:AddButton({
+  Name = "安全区",
+  Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/rmPfWVU3"))()
+  end
+})
+
+Tab:AddButton({
+        Name = "快速旋转",
+        Callback = function()
+     --BROUGHT TO YOU BY RSCRIPTS.NET--
+
+if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+spawn(function()
+local speaker = game.Players.LocalPlayer
+local Anim = Instance.new("Animation")
+     Anim.AnimationId = "rbxassetid://27432686"
+     local bruh = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+bruh:Play()
+bruh:AdjustSpeed(0)
+speaker.Character.Animate.Disabled = true
+local hi = Instance.new("Sound")
+hi.Name = "Sound"
+hi.SoundId = "http://www.roblox.com/asset/?id=8114290584"
+hi.Volume = 2
+hi.Looped = false
+hi.archivable = false
+hi.Parent = game.Workspace
+hi:Play()
+wait(1.5)
+local spinSpeed = 30
+local Spin = Instance.new("BodyAngularVelocity")
+Spin.Name = "Spinning"
+Spin.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+Spin.MaxTorque = Vector3.new(0, math.huge, 0)
+Spin.AngularVelocity = Vector3.new(0,spinSpeed,0)
+wait(3.5)
+while speaker.Character.Humanoid.Health > 0 do
+   wait(0)
+speaker.Character.Humanoid.HipHeight = speaker.Character.Humanoid.HipHeight + 0
+end
+end)
+else
+spawn(function()
+local speaker = game.Players.LocalPlayer
+local Anim = Instance.new("Animation")
+     Anim.AnimationId = "rbxassetid://507776043"
+     local bruh = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+bruh:Play()
+bruh:AdjustSpeed(0)
+speaker.Character.Animate.Disabled = true
+local hi = Instance.new("Sound")
+hi.Name = "Sound"
+hi.SoundId = "http://www.roblox.com/asset/?id=8114290584"
+hi.Volume = 0
+hi.Looped = false
+hi.archivable = false
+hi.Parent = game.Workspace
+hi:Play()
+wait()
+local spinSpeed = 30
+local Spin = Instance.new("BodyAngularVelocity")
+Spin.Name = "Spinning"
+Spin.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+Spin.MaxTorque = Vector3.new(0, math.huge, 0)
+Spin.AngularVelocity = Vector3.new(0,spinSpeed,0)
+wait(3.5)
+while speaker.Character.Humanoid.Health > 0 do
+   wait(0)
+speaker.Character.Humanoid.HipHeight = speaker.Character.Humanoid.HipHeight + 0
+end
+end)    
+end
+          end    
+})
+
+Tab:AddButton({
+  Name = "极速旋转",
+  Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/ckiGL34v"))()
+  end
+})
+
+Tab:AddButton({
+  Name = "在聊天框中进行图画",
+  Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ocfi/Draw-To-Chat-Obfuscated/refs/heads/main/Draw%20to%20Chat"))()
+  end
+})
+
+Tab:AddButton({
+  Name = "锁定视角",
+  Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/gdLR5Z7X"))()
+  end
+})
+
+Tab:AddButton({
+        Name = "走路创人",
+        Callback = function()
+     loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe/main/obf_5wpM7bBcOPspmX7lQ3m75SrYNWqxZ858ai3tJdEAId6jSI05IOUB224FQ0VSAswH.lua.txt'),true))()
+          end    
+})
+
+Tab:AddButton({
+        Name = "铁拳打人",
+        Callback = function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe/main/obf_rf6iQURzu1fqrytcnLBAvW34C9N55kS9g9G3CKz086rC47M6632sEd4ZZYB0AYgV.lua.txt'),true))()
+end
+})
+
+Tab:AddButton({
+  Name = "透视",
+  Callback = function()
+              loadstring(game:HttpGet('https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/UESP'))()
+end
+})
+
+Tab:AddButton({
+        Name = "点击传送工具",
+        Callback = function()
+mouse = game.Players.LocalPlayer:GetMouse() tool = Instance.new("Tool") tool.RequiresHandle = false tool.Name = "[FE] TELEPORT TOOL" tool.Activated:connect(function() local pos = mouse.Hit+Vector3.new(0,2.5,0) pos = CFrame.new(pos.X,pos.Y,pos.Z) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos end) tool.Parent = game.Players.LocalPlayer.Backpack
+        end
+})
+
+Tab:AddButton({
+  Name = "甩人",
+  Callback = function()
+  loadstring(game:HttpGet("https://pastebin.com/raw/L9QBifcX"))()
+  end
+})
+
+Tab:AddButton({
+        Name = "无限跳",
+        Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/V5PQy3y0", true))()
+end
+})
+
+Tab:AddButton({
+  Name = "操人",
+  Callback = function()
+
+loadstring(game:HttpGet("https://pastebin.com/raw/XmcMKfMV"))()
+  end
+})
+
+Tab:AddButton({
+  Name = "灵魂出窍",
+  Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/ahK5jRxM"))()
+  end
+})
+
+Tab:AddButton({
+        Name = "选人甩飞（需要输入别人的名字）",
+        Callback = function()
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Auto%20Fling%20Player'))()
+
+end
+})
+
+Tab:AddButton({
+      Name = "位置",
+      Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/ZJeTvyzG"))()
+      end    
+})
+
+Tab:AddButton({
+        Name = "爬墙",
+        Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
+end
+})
+
+Tab:AddButton({
+  Name = "让物体起飞(Q键使用)",
+  Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BOOSBS/ajduoxc/refs/heads/main/ajduoxcz"))()
+  end
+})
+
+Tab:AddButton({
+  Name = "键盘(配合其他脚本使用)",
+  Callback = function()
+  loadstring(game:HttpGet("https://gist.githubusercontent.com/RedZenXYZ/4d80bfd70ee27000660e4bfa7509c667/raw/da903c570249ab3c0c1a74f3467260972c3d87e6/KeyBoard%2520From%2520Ohio%2520Fr%2520Fr"))()
+  end
+})
+
+Tab:AddButton({
+        Name = "键盘脚本(第2种)",
+        Callback = function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Xxtan31/Ata/main/deltakeyboardcrack.txt", true))()
+
+end
+})
+
+Tab:AddButton({
+  Name = "飞车",
+  Callback = function()
+
+loadstring(game:HttpGet("https://pastebin.com/raw/gNqZiexm"))()
+
+  end
+})
+
+Tab:AddButton({
+  Name = "动作(按，开启)",
+  Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/ws8cJmTD"))()
+  end
+})
+
+Tab:AddButton({
+  Name = "上头定在原地",
+  Callback = function()
+    local lp = game:GetService "Players".LocalPlayer
+    if lp.Character:FindFirstChild "Head" then
+      local char = lp.Character
+      char.Archivable = true
+      local new = char:Clone()
+      new.Parent = workspace
+      lp.Character = new
+      wait(0.1)
+      local oldhum = char:FindFirstChildWhichIsA "Humanoid"
+      local newhum = oldhum:Clone()
+      newhum.Parent = char
+      newhum.RequiresNeck = false
+      oldhum.Parent = nil
+      wait(0.1)
+      lp.Character = char
+      new:Destroy()
+      wait(0.1)
+      newhum:GetPropertyChangedSignal("Health"):Connect(
+      function()
+        if newhum.Health <= 0 then
+          oldhum.Parent = lp.Character
+          wait(0.1)
+          oldhum:Destroy()
+        end
+      end)
+      workspace.CurrentCamera.CameraSubject = char
+      if char:FindFirstChild "Animate" then
+        char.Animate.Disabled = true
+        wait(0.1)
+        char.Animate.Disabled = false
+      end
+      lp.Character:FindFirstChild "Head":Destroy()
+    end
+end
+})
+
+Tab:AddButton({
+  Name = "让走路和跳跃变卡(对别人没影响)",
+  Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Fe%20Fake%20Lag%20Obfuscator'))()
+  end
+})
+
+Tab:AddButton({
+  Name = "滚动",
+  Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BOOSBS/111/refs/heads/main/192"))()
+  end
+})
+
+Tab:AddButton({
+  Name = "动画包",
+  Callback = function()
+
+loadstring(game:HttpGet("https://pastebin.com/raw/fTsp2ZgP"))()
+
+  end
+})
+
+Tab:AddButton({
+  Name = "认真反复横跳",
+  Callback = function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l7Y131YqJjZ31QmV5L8pI23V02b3191sEg26E75472Wl78Vi8870jRv5txZyL1.lua.txt"))()
+  end
+})
+
+Tab:AddButton({
+  Name = "自瞄",
+  Callback = function()
+   loadstring(game:HttpGet("https://pastebin.com/raw/tYuVRD8r"))()
+  end
+})
+
+Tab:AddButton({
+  Name = "定住自己",
+  Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/YrfBSuWw"))()
+  end
+})
+
+Tab:AddButton({
+   Name = "工具包",
+   Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Bebo-Mods/BeboScripts/main/StandAwekening.lua"))()
+   end
+})
+
+Tab:AddButton({
+        Name = "踏空行走",
+        Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Float'))()
+        end
+})
+
+local Tab = Window:MakeTab({
+        Name = "Fisch",
+        Icon = "rbxassetid://7734068321",
+        PremiumOnly = false
+})
+
+Tab:AddButton({
+        Name = "speed hub(推荐)",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+        end
+})
