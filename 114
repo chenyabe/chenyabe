@@ -1,5 +1,7 @@
 game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "正常运行"; Text ="请耐心等待加载"; Duration = 4; })
 
+wait(1.5)
+
 local CoreGui = game:GetService("StarterGui")
 
 CoreGui:SetCore("SendNotification", {
@@ -14,6 +16,7 @@ print("反挂机开启")
                    wait(1)
                    vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
                 end)
+wait(1.5)
 local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/chenyabe/chenyabe/refs/heads/main/hub'))()
 local Window = OrionLib:MakeWindow({Name = "测试", HidePremium = false, SaveConfig = true,IntroText = "原来你也玩roblox", ConfigFolder = "hi你好啊"})
 
@@ -275,7 +278,7 @@ Tab:AddButton({
   Name = "飞行",
   Callback = function()
 
-loadstring(game:HttpGet("https://pastebin.com/raw/pMyEyJN6"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/chenyabe/chenyabe/refs/heads/main/fly"))()
   end
 })
 
