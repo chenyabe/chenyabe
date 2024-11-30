@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://pastebin.com/raw/9fFu43FF"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/chenyabe/chenyabe/refs/heads/main/hub"))()
 
 game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "正常运行"; Text ="请耐心等待加载"; Duration = 4; })
 
