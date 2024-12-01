@@ -38,7 +38,7 @@ Tab:AddParagraph("您的注入器:"," "..identifyexecutor().."")
 
 Tab:AddParagraph("您当前服务器的ID"," "..game.GameId.."")
 
-Tab:AddParagraph("您当前的游戏名"," "..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name.."")
+Tab:AddParagraph("您当前服务器的名称"," "..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name.."")
 
 local Tab = Window:MakeTab({
         Name = "基础属性",
