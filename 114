@@ -17,7 +17,7 @@ print("反挂机开启")
                    vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
                 end)
 wait(1.5)
-local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/chenyabe/chenyabe/refs/heads/main/hub2'))()
+local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/chenyabe/chenyabe/refs/heads/main/hub3'))()
 local Window = OrionLib:MakeWindow({Name = "测试", HidePremium = false, SaveConfig = true,IntroText = "原来你也玩roblox", ConfigFolder = "hi你好啊"})
 
 local Tab = Window:MakeTab({
