@@ -1,0 +1,23 @@
+-- 获取玩家的服务
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- 等待玩家的字符加载完成
+player.CharacterAdded:Wait()
+
+-- 创建一个新的 ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- 创建一个新的 ImageLabel
+local whiteBall = Instance.new("ImageLabel")
+whiteBall.Name = "WhiteBall"
+whiteBall.Size = UDim2.new(0, 50, 0, 50) -- 设置大小为 50x50
+whiteBall.Position = UDim2.new(0.5, -25, 0.5, -25) -- 居中显示
+whiteBall.BackgroundTransparency = 1 -- 设置背景透明
+whiteBall.Image = "rbxassetid://3578595887" -- 使用白色小球图像 asset ID
+whiteBall.ImageColor3 = Color3.new(1, 1, 1) -- 设置图像颜色为白色
+whiteBall.ImageTransparency = 0 -- 设置图像透明度为不透明
+
+-- 将 ImageLabel 添加到 ScreenGui
+whiteBall.Parent = screenGui
