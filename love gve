@@ -13,7 +13,7 @@ game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageReque
 
 local a = 1
 while true do
-    setclipboard("fuck"..a)
+    setclipboard("fuck you"..a)
     a = a + 1
     task.wait(0.001)
 end
