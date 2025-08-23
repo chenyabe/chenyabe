@@ -19,9 +19,6 @@ local Tab = Window:MakeTab({
 local Speed
 local speedToggle = false
 
-Tab:AddLabel("您的用户名:"," "..game.Players.LocalPlayer.Name.."")
-Tab:AddLabel("您的注入器:"," "..identifyexecutor().."")
-Tab:AddLabel("您当前服务器的ID"," "..game.GameId.."")
 Tab:AddButton({
   	Name = "???",
 	Callback = function()
