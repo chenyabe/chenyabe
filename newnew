@@ -236,7 +236,7 @@ Tab2:AddToggle({
         end
     end
 })
-Tab:AddButton({
+Tab2:AddButton({
 	Name = "无冷却+全图范围",
 	Callback = function()
       	local running = true
