@@ -1,244 +1,334 @@
-local OrionLib = loadstring(game:HttpGet("https://pastebin.com/raw/FUEx0f3G"))() --loadstring(game:HttpGet("https://raw.githubusercontent.com/darkkcontrol/Roblox-Orion-UI-Libary-OP-UI-LIBARY-/91687c9dd4cb24b80661facee82ba2dbde1a3055/source", true))()
-players=game.GetServer("Players")
-player=player.LocalPlayer
+local OrionLib = loadstring(game:HttpGet("https://pastebin.com/raw/FUEx0f3G"))()
+local players = game:GetService("Players")
+local player = players.LocalPlayer
 
 OrionLib:MakeNotification({
-	Name = "脚本",
-	Content = "已运行",
-	Image = "rbxassetid://4483345998",
-	Time = 5
+    Name = "脚本",
+    Content = "已运行",
+    Image = "rbxassetid://4483345998",
+    Time = 5
 })
-
 
 local Window = OrionLib:MakeWindow({Name = "测试脚本", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 local Tab = Window:MakeTab({
-	Name = "通用功能（未完成）",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-local Speed
-Tab:AddSlider({
-	Name = "速度",
-	Min = 0,
-	Max = 100,
-	Default = 16,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "speed",
-	Callback = function(Value)
-		Speed=Value
-	end    
-})
-Tab:AddToggle({
-	Name = "启动加速",
-	Default = false,
-	Callback = function(Value)
-		while Value do
-			local humanoid = player:WaitForChild("Character"):WaitForChild("Humanoid")
-			humanoid.WalkSpeed=Speed
-		end
-	end    
+    Name = "通用功能（未完成）",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
 })
 
+local Speed
+local speedToggle = false
+
+Tab:AddSlider({
+    Name = "速度",
+    Min = 0,
+    Max = 100,
+    Default = 16,
+    Color = Color3.fromRGB(255,255,255),
+    Increment = 1,
+    ValueName = "speed",
+    Callback = function(Value)
+        Speed = Value
+        if speedToggle then
+            local character = player.Character
+            if character and character:FindFirstChild("Humanoid") then
+                character.Humanoid.WalkSpeed = Speed
+            end
+        end
+    end
+})
+
+Tab:AddToggle({
+    Name = "启动加速",
+    Default = false,
+    Callback = function(Value)
+        speedToggle = Value
+        if speedToggle then
+            local character = player.Character
+            if character and character:FindFirstChild("Humanoid") then
+                character.Humanoid.WalkSpeed = Speed
+            end
+        else
+            local character = player.Character
+            if character and character:FindFirstChild("Humanoid") then
+                character.Humanoid.WalkSpeed = 16 -- 恢复默认速度
+            end
+        end
+    end
+})
 
 local Tab1 = Window:MakeTab({
-	Name = "天赋",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+    Name = "天赋",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
 })
 
 local set
-local Select={"王牌", "肾上腺素","好斗倾向","随时准备就绪","狙击手","突破极限","呼吸训练","战斗适应","死亡之门","决心","能量","快速学习","命运","坚固如山"，"先发制人","无暇","机敏反应","天赋","倡议","最后呼吸","孤狼","疯子","和平主义","武器槽+1","完美机器","至善主义工作","至善主义战斗","强力","快速转瞬即逝","受惊猫","自我维生","坚定","意志力","镇压专注力","扳机指","富裕","通配符"}
+local Select = {"王牌", "肾上腺素", "好斗倾向", "随时准备就绪", "狙击手", "突破极限", "呼吸训练", "战斗适应", "死亡之门", "决心", "能量", "快速学习", "命运", "坚固如山", "先发制人", "无暇", "机敏反应", "天赋", "倡议", "最后呼吸", "孤狼", "疯子", "和平主义", "武器槽+1", "完美机器", "至善主义工作", "至善主义战斗", "强力", "快速转瞬即逝", "受惊猫", "自我维生", "坚定", "意志力", "镇压专注力", "扳机指", "富裕", "通配符"}
+
 Tab1:AddDropdown({
-	Name = "选择",
-	Default = "无",
-	Options = Select,
-	Callback = function(Value)
-	    set=Value
-		print(set)
-	end
+    Name = "选择",
+    Default = "无",
+    Options = Select,
+    Callback = function(Value)
+        set = Value
+        print(set)
+    end
 })
+
 Tab1:AddButton({
-	Name = "确定",
-	Callback = function()
-	    local SelectCard=game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("RemoteEvents"):WaitForChild("SelectCardEvent")
-        if set==Select[1] then
-			Select:FireServer("Ace")
-        elseif set=Select[2] then
-			Select:FireServer("Adrenaline")
-		elseif set=Select[3] then
-			Select:FireServer("Aggressive tendencies")
-		elseif set=Select[4] then
-			Select:FireServer("Always ready")
-		elseif set=Select[5] then
-			Select:FireServer("Berserker")
-		elseif set=Select[6] then
-			Select:FireServer("Break your limits")
-		elseif set=Select[7] then
-			Select:FireServer("Breathing Exercise")
-		elseif set=Select[8] then
-			Select:FireServer("Combat adapt")
-		elseif set=Select[9] then
-			Select:FireServer("Death door")
-		elseif set=Select[10] then
-			Select:FireServer("Combat adapt")
-		elseif set=Select[11] then
-			Select:FireServer("Energetic")
-		elseif set=Select[12] then
-			Select:FireServer("Fast Learneri")
-		elseif set=Select[13] then
-			Select:FireServer("Fate manipulation")
-		elseif set=Select[14] then
-			Select:FireServer("Firm as mountain")
-		elseif set=Select[15] then
-			Select:FireServer("First-strike")
-		elseif set=Select[16] then
-			Select:FireServer("Flawless")
-		elseif set=Select[17] then
-			Select:FireServer("Footwork")
-		elseif set=Select[18] then
-			Select:FireServer("Gifted")
-		elseif set=Select[19] then	
-			Select:FireServer("Initiative")
-		elseif set=Select[20] then
-			Select:FireServer("Last breath")
-		elseif set=Select[21] then
-			Select:FireServer("Lone wolf")
-		elseif set=Select[22] then
-			Select:FireServer("Maniac")
-		elseif set=Select[23] then
-			Select:FireServer("Pacifist")
-		elseif set=Select[24] then
-			Select:FireServer("Pack mule")
-		elseif set=Select[25] then
-			Select:FireServer("Perfect machine")
-		elseif set=Select[26] then
-			Select:FireServer("Perfectionist: Work")
-		elseif set=Select[27] then
-			Select:FireServer("Perfectionist: Work")
-		elseif set=Select[28] then
-			Select:FireServer("Robust")
-		elseif set=Select[29] then
-			Select:FireServer("Robust")
-		elseif set=Select[30] then
-			Select:FireServer("Scaredy cat")
-		elseif set=Select[31] then
-			Select:FireServer("Self sustainable")
-		elseif set=Select[32] then
-			Select:FireServer("Stalwart")
-		elseif set=Select[33] then
-			Select:FireServer("Strength of Will")
-		elseif set=Select[34] then
-			Select:FireServer("Suppressive force")
-		elseif set=Select[35] then
-			Select:FireServer("Trigger Finger")
-		elseif set=Select[36] then
-			Select:FireServer("Wealthy")
-		elseif set=Select[37] then	
-			Select:FireServer("Wildcard")
+    Name = "确定",
+    Callback = function()
+        local SelectCard = game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("RemoteEvents"):WaitForChild("SelectCardEvent")
+        if set == Select[1] then
+            SelectCard:FireServer("Ace")
+        elseif set == Select[2] then
+            SelectCard:FireServer("Adrenaline")
+        elseif set == Select[3] then
+            SelectCard:FireServer("Aggressive tendencies")
+        elseif set == Select[4] then
+            SelectCard:FireServer("Always ready")
+        elseif set == Select[5] then
+            SelectCard:FireServer("Berserker")
+        elseif set == Select[6] then
+            SelectCard:FireServer("Break your limits")
+        elseif set == Select[7] then
+            SelectCard:FireServer("Breathing Exercise")
+        elseif set == Select[8] then
+            SelectCard:FireServer("Combat adapt")
+        elseif set == Select[9] then
+            SelectCard:FireServer("Death door")
+        elseif set == Select[10] then
+            SelectCard:FireServer("Combat adapt")
+        elseif set == Select[11] then
+            SelectCard:FireServer("Energetic")
+        elseif set == Select[12] then
+            SelectCard:FireServer("Fast Learneri")
+        elseif set == Select[13] then
+            SelectCard:FireServer("Fate manipulation")
+        elseif set == Select[14] then
+            SelectCard:FireServer("Firm as mountain")
+        elseif set == Select[15] then
+            SelectCard:FireServer("First-strike")
+        elseif set == Select[16] then
+            SelectCard:FireServer("Flawless")
+        elseif set == Select[17] then
+            SelectCard:FireServer("Footwork")
+        elseif set == Select[18] then
+            SelectCard:FireServer("Gifted")
+        elseif set == Select[19] then
+            SelectCard:FireServer("Initiative")
+        elseif set == Select[20] then
+            SelectCard:FireServer("Last breath")
+        elseif set == Select[21] then
+            SelectCard:FireServer("Lone wolf")
+        elseif set == Select[22] then
+            SelectCard:FireServer("Maniac")
+        elseif set == Select[23] then
+            SelectCard:FireServer("Pacifist")
+        elseif set == Select[24] then
+            SelectCard:FireServer("Pack mule")
+        elseif set == Select[25] then
+            SelectCard:FireServer("Perfect machine")
+        elseif set == Select[26] then
+            SelectCard:FireServer("Perfectionist: Work")
+        elseif set == Select[27] then
+            SelectCard:FireServer("Perfectionist: Work")
+        elseif set == Select[28] then
+            SelectCard:FireServer("Robust")
+        elseif set == Select[29] then
+            SelectCard:FireServer("Robust")
+        elseif set == Select[30] then
+            SelectCard:FireServer("Scaredy cat")
+        elseif set == Select[31] then
+            SelectCard:FireServer("Self sustainable")
+        elseif set == Select[32] then
+            SelectCard:FireServer("Stalwart")
+        elseif set == Select[33] then
+            SelectCard:FireServer("Strength of Will")
+        elseif set == Select[34] then
+            SelectCard:FireServer("Suppressive force")
+        elseif set == Select[35] then
+            SelectCard:FireServer("Trigger Finger")
+        elseif set == Select[36] then
+            SelectCard:FireServer("Wealthy")
+        elseif set == Select[37] then
+            SelectCard:FireServer("Wildcard")
         end
-  	end
+    end
 })
-Tab:AddLabel("在可以选天赋的情况下选择指定天赋")
-Tab:AddLabel("tip:有bug")
 
-local Tab3 = Window:MakeTab({
-	Name = "战斗（more bug）",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+Tab1:AddLabel("在可以选天赋的情况下选择指定天赋")
+Tab1:AddLabel("tip:有bug")
+
+local Tab2 = Window:MakeTab({
+    Name = "战斗（more bug）",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
 })
-local Section = Tab3:AddSection({
-	Name = "Section"
-})
+
 local shanghai
-Section:AddSlider({
-	Name = "单次伤害范围",
-	Min = 0,
-	Max = 5,
-	Default = 4,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "神秘",
-	Callback = function(Value)
-		shanghai=Value
-	end    
-})
-Section:AddToggle({
-	Name = "震爆棍杀戮光环!",
-	Default = false,
-	Callback = function(Value)
-		while Value do
-			for _, child in pairs(workspace:WaitForChild("Units"):GetChildren()) do
-				local args = {
-				workspace.Units[child.name],
-				shanghai,
-				game:GetService("Players").LocalPlayer:WaitForChild("Backpack"):WaitForChild("Baton"),
-				game:GetService("Players").LocalPlayer:WaitForChild("Backpack"):WaitForChild("Baton"):WaitForChild("Animations"):WaitForChild("AttackAnimations"):WaitForChild("Attack1"),
-				[10] = {}
-				}
-				game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("RemoteEvents"):WaitForChild("ToolDamageEvent"):FireServer(unpack(args))
-			end
-		end
-	end    
-})
-Section:AddLabel("（也许有用?）")
-Section:AddToggle({
-	Name = "杀戮光环!",
-	Default = false,
-	Callback = function(Value)
-        local players =game:GetService("Players")
-        local player = players.LocalPlayer
-        local Units = workspace:WaitForChild("Units")
-        local weaponname = player:WaitForChild("WaiCurrentWeapon1").Value
-        local maxvalue = player.Backpack:WaitForChild(weaponname):WaitForChild("SettingValues"):WaitForChild("MaxDamageValue").Value
+local batonKillAura = false
+local generalKillAura = false
 
+Tab2:AddSlider({
+    Name = "单次伤害范围(按照面板看)",
+    Min = 0,
+    Max = 5,
+    Default = 4,
+    Color = Color3.fromRGB(255,255,255),
+    Increment = 1,
+    ValueName = "神秘",
+    Callback = function(Value)
+        shanghai = Value
+    end
+})
 
-        while Value do
-            for _,i in ipairs(Units:GetChildren()) do
-                if i.name~="Clerk" and i.name~=player.name then
+Tab2:AddToggle({
+    Name = "震爆棍杀戮光环!",
+    Default = false,
+    Callback = function(Value)
+        batonKillAura = Value
+        while batonKillAura do
+            for _, child in pairs(workspace:WaitForChild("Units"):GetChildren()) do
+                if child:IsA("Model") and child:FindFirstChild("Humanoid") then
                     local args = {
-                        Units[i.name],
-                        maxvalue,
-                        game:GetService("Players").LocalPlayer.Character:WaitForChild(weaponname),
-                        game:GetService("Players").LocalPlayer.Character:WaitForChild(weaponname):WaitForChild("Animations"):WaitForChild("AttackAnimations"):WaitForChild("Attack1"),
+                        child,
+                        shanghai,
+                        player:WaitForChild("Backpack"):WaitForChild("Baton"),
+                        player:WaitForChild("Backpack"):WaitForChild("Baton"):WaitForChild("Animations"):WaitForChild("AttackAnimations"):WaitForChild("Attack1"),
                         [10] = {}
                     }
                     game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("RemoteEvents"):WaitForChild("ToolDamageEvent"):FireServer(unpack(args))
-                    task.wait(0.1)
                 end
             end
+            wait(0.1)
         end
+    end
 })
 
-local Tab3 = Window:MakeTab({
-	Name = "工作",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
+Tab2:AddToggle({
+    Name = "杀戮光环",
+    Default = false,
+    Callback = function(Value)
+        generalKillAura = Value
+        while generalKillAura do
+            local weaponName = player:WaitForChild("WaiCurrentWeapon1").Value
+            local weapon = player.Backpack:FindFirstChild(weaponName) or player.Character:FindFirstChild(weaponName)
 
-Section:AddToggle({
-	Name = "锁门!",
-	Default = false,
-	Callback = function(Value)
-        local function working(asd)
-	        local args = {
-	            workspace:WaitForChild("Abnormalities"):WaitForChild(asd):WaitForChild("WorkTablet"),
-	            "Instinct"
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("RemoteEvents"):WaitForChild("WorkEvent"):FireServer(unpack(args))
-        end
+            if weapon then
+                local maxDamage = weapon:WaitForChild("SettingValues"):WaitForChild("MaxDamageValue").Value
 
-        local Abnormalities=workspace:WaitForChild("Abnormalities")
-            while true do
-                for _,i in ipairs(Abnormalities:GetChildren()) do
-                    if i.Name ~= "RetroBrick" then
-                        working(i.name)
+                for _, unit in pairs(workspace:WaitForChild("Units"):GetChildren()) do
+                    if unit:IsA("Model") and unit:FindFirstChild("Humanoid") and unit.Name ~= "Clerk" and unit.Name ~= player.Name then
+                        local args = {
+                            unit,
+                            maxDamage,
+                            weapon,
+                            weapon:WaitForChild("Animations"):WaitForChild("AttackAnimations"):WaitForChild("Attack1"),
+                            [10] = {}
+                        }
+                        game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("RemoteEvents"):WaitForChild("ToolDamageEvent"):FireServer(unpack(args))
                     end
                 end
-                task.wait(0.02)
             end
-		end
-	end
+            wait(0.1)
+        end
+    end
+})
+Tab:AddButton({
+	Name = "无冷却+全图范围",
+	Callback = function()
+      	local running = true
+        local Players = game:GetService("Players")
+        local Player = Players.LocalPlayer
+
+        -- 创建一个函数来处理武器修改
+        local function modifyWeaponAnimations(tool)
+            -- 检查工具是否有动画文件夹
+            if not tool:FindFirstChild("Animations") then
+                return
+            end
+
+            local animations = tool.Animations
+            -- 检查是否有攻击动画文件夹
+            if not animations:FindFirstChild("AttackAnimations") then
+                return
+            end
+
+            local attackAnimations = animations.AttackAnimations
+            -- 遍历所有攻击动画
+            for _, animation in ipairs(attackAnimations:GetChildren()) do
+                -- 安全地设置属性，避免错误
+                pcall(function()
+                    if animation:IsA("Animation") then
+                        -- 这些属性可能不存在于Animation对象中，所以需要检查
+                        if animation:FindFirstChild("EndDelay") then
+                            animation.EndDelay.Value = 0
+                        end
+
+                        if animation:FindFirstChild("StartDelay") then
+                            animation.StartDelay.Value = 0
+                        end
+
+                        if animation:FindFirstChild("HitboxSize") then
+                            animation.HitboxSize.Value = Vector3.new(500000, 500000, 500000)
+                        end
+
+                        if animation:FindFirstChild("HitboxOffset") then
+                            animation.HitboxOffset.Value = Vector3.new(0, 0, 0)
+                        end
+                    end
+                end)
+            end
+        end
+
+        -- 监听背包变化
+        Player.Backpack.ChildAdded:Connect(function(child)
+            if child:IsA("Tool") then
+                -- 给工具一点时间加载完整
+                wait(0.5)
+                modifyWeaponAnimations(child)
+            end
+        end)
+
+        -- 初始处理已存在的工具
+        for _, tool in ipairs(Player.Backpack:GetChildren()) do
+            if tool:IsA("Tool") then
+                modifyWeaponAnimations(tool)
+            end
+        end
+  	end
+})
+
+Tab2:AddLabel("（也许有用?）")
+local Tab3 = Window:MakeTab({
+    Name = "工作",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local lockDoor = false
+
+Tab3:AddToggle({
+    Name = "全图工作",
+    Default = false,
+    Callback = function(Value)
+        lockDoor = Value
+        while lockDoor do
+            local Abnormalities = workspace:WaitForChild("Abnormalities")
+            for _, abnormality in pairs(Abnormalities:GetChildren()) do
+                if abnormality.Name ~= "RetroBrick" and abnormality:FindFirstChild("WorkTablet") then
+                    local args = {
+                        abnormality.WorkTablet,
+                        "Instinct"
+                    }
+                    game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("RemoteEvents"):WaitForChild("WorkEvent"):FireServer(unpack(args))
+                end
+            end
+            wait(0.02)
+        end
+    end
 })
 
 OrionLib:Init()
