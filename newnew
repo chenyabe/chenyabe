@@ -11,7 +11,7 @@ OrionLib:MakeNotification({
 
 local Window = OrionLib:MakeWindow({Name = "测试脚本", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 local Tab = Window:MakeTab({
-    Name = "通用功能（未完成）",
+    Name = "通用（未完成）",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
@@ -19,6 +19,21 @@ local Tab = Window:MakeTab({
 local Speed
 local speedToggle = false
 
+Tab:AddLabel("您的用户名:"," "..game.Players.LocalPlayer.Name.."")
+Tab:AddLabel("您的注入器:"," "..identifyexecutor().."")
+Tab:AddLabel("您当前服务器的ID"," "..game.GameId.."")
+Tab:AddButton({
+  	Name = "???",
+	Callback = function()
+        OrionLib:MakeNotification({
+            Name = "你好",
+            Content = "请打开粘贴板😈",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+        setclipboard('本子是否极品😨我一看便知😋\n637857奶龙\n350234董卓\n136494光头强\n405848终极耻辱\n481481范马娘\n568070逆天大奶\n628539福瑞1\n627898福瑞2\n628555福瑞3\n627899福瑞4\n611650植物大战僵尸\n323666冲绳奴隶岛\n363848坤坤\n454278野兽前辈\n559716猩惺和尚\n629252雄汁汲取\n626487冲绳奴隶岛新车牌\n400002和幸运星一起学化学\n208092哆啦AV梦\n253199电锯人杏艾篇\n382596男娘，大吊，看了自闭\n418600和喝醉了的笨蛋老爸以性教育为由做了\n565616君枝の桥の下性活，老年人，重口\n222458张飞！危机一髪！\n611674大耳朵图图\n636531贝利亚\n非常好的本子,看完忍不住搞底壳了😍')
+    end
+})
 Tab:AddSlider({
     Name = "速度",
     Min = 0,
@@ -56,6 +71,32 @@ Tab:AddToggle({
         end
     end
 })
+Tab:AddButton({
+	Name = "飞行",
+	Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/114514icu/main/refs/heads/shalang/Fly"))()
+    end
+})
+Tab:AddButton({
+	Name = "穿墙工具",
+	Callback = function()
+        mouse = game.Players.LocalPlayer:GetMouse()
+        tool = Instance.new("Tool")
+        tool.RequiresHandle = false
+        tool.Name = ("穿墙工具")
+        tool.Activated:Connect(function()
+        game.Players.LocalPlayer.Character.Humanoid.MaxHealth = math.huge
+        game.Players.LocalPlayer.Character.Humanoid.Health = math.huge
+        while true do
+                game:GetService("RunService").Stepped:wait()
+                game.Players.LocalPlayer.Character.Head.CanCollide = false
+                game.Players.LocalPlayer.Character.Torso.CanCollide = false
+        end
+        end)
+        tool.Parent = game.Players.LocalPlayer.Backpack
+    end
+})
+
 
 local Tab1 = Window:MakeTab({
     Name = "天赋",
@@ -236,7 +277,7 @@ Tab2:AddToggle({
         end
     end
 })
-Tab2:AddButton({
+Tab:AddButton({
 	Name = "无冷却+全图范围",
 	Callback = function()
       	local running = true
